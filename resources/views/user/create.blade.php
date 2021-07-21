@@ -1,7 +1,17 @@
 @extends('layouts.app')
 @section('content')
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="float-left">
+            <h2>Edit Post</h2>
+        </div>
+        <div class="float-right">
+            <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
+        </div>
+    </div>
+</div>
 <div class="card-body">
-  <form method="POST" action="{{ route('edit.user') }}">
+  <form method="POST" action="{{ route('create.user') }}">
       @csrf
 
       <div class="form-group">
@@ -74,9 +84,9 @@
               <x-jet-button>
                   {{ __('Register') }}
               </x-jet-button>
-              <x-jet-button>
+              {{-- <x-jet-button>
                   {{ __('Reset') }}
-              </x-jet-button>
+              </x-jet-button> --}}
           </div>
       </div>
   </form>

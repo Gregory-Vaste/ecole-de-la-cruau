@@ -66,7 +66,10 @@ class Kernel extends HttpKernel
         //user auth redirect
         'userAuth'=> \App\Http\Middleware\UserAuth::class,
 
-        //user authorize
+        //user authorize for admin and super admin
         'autorize_access' => \App\Http\Middleware\autorize_access::class,
+
+        // user auth authorise
+        'authorizeUser' => \App\Http\Middleware\AuthorizeUser::class,
     ];
 }

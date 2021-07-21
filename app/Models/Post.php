@@ -12,4 +12,8 @@ class Post extends Model
     protected $fillable = [
         'title', 'description', 'autor'
     ];
+    //relation
+    public function tag(){
+        return $this->hasMany(Tag::class);
+    }
 }

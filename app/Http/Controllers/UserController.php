@@ -13,12 +13,12 @@ class UserController extends Controller
 
         $users = User::all();
         
-        return view('user/indexUser',compact('users'));
+        return view('user/index',compact('users'));
     }
     // return view for creat user
     public function create()
     {
-        return view('user.createUser');
+        return view('user/create');
     }
 
     
@@ -45,7 +45,7 @@ class UserController extends Controller
     //form for edit a user 
     public function edit(User $user)
     {
-        return view('user.editUser', compact('user'));
+        return view('user/edit', compact('user'));
     }
 
     //updating a new user for admin or super admin 

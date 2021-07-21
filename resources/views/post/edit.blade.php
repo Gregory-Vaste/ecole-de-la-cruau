@@ -3,15 +3,27 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Create Post</h2>
+            <h2>Edit Post</h2>
         </div>
         <div class="pull-right">
             <a class="btn btn-primary" href="{{ route('post.index') }}"> Back</a>
         </div>
     </div>
 </div>
-    <form action="{{route(post.store)}}" method="POST">
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+    <form action="{{route(post.update), $post->id}}" method="POST">
         @csrf
+        
+        @method('PUT')
+
         <div class="form-group">
             <x-jet-label value="{{ __('Title') }}" />
   
@@ -28,15 +40,15 @@
         </div>
         <div class="form-group">
             <x-jet-label value="{{__('Description')}}" />
-            <x-jet-input class="{{$errors->has('description') ? 'is-invalid' : ''}}" style="height: 150px" name="description"
-                            :value="old('description')" required autofocus autocomplete="autor" type="textarea"/>
+            <x-jet-textarea class="{{$errors->has('description') ? 'is-invalid' : ''}}" style="height: 150px" name="description"
+                            :value="old('description')" required autofocus autocomplete="autor" />
             <x-jet-input-error for="description"/></x-jet-input-error>
         </div>
 
         <div class="mb-0">
             <div class="d-flex justify-content-end align-items-baseline">
                 <x-jet-button>
-                    {{ __('Register') }}
+                    {{ __('Submit') }}
                 </x-jet-button>
                 {{-- <x-jet-button>
                     {{ __('Reset') }}

@@ -1,17 +1,33 @@
 @extends('layouts.app')
 @section('content')
+<div class="row">
+  <div class="col-lg-12 margin-tb">
+      <div class="float-left">
+          <h2>Index User</h2>
+      </div>
+      <div class="float-right">
+        @if (auth()->user()->is_admin)
+          <a class="btn btn-primary" href="{{ route('admin.route') }}"> Back</a>
+        @else
+          <a class="btn btn-primary" href="{{ route('superAdmin.route') }}"> Back</a>
+        @endif
+        <a class="btn btn-primary" href="{{ route('create.user') }}">add user</a>
+    </div>
+     
+  </div>
+</div>
 <table class="table table-bordered table-responsive-xl mt-3">
     <thead class="thead-dark">
       <tr>
         <th>Nom</th>
         <th>Prénom</th>
-        <th>adress</th>
-        <th>zipCode</th>
-        <th>adhenrent</th>
-        <th>licencier</th>
-        <th>admin</th>
-        <th>super Admin</th>
-        <th>tools</th>
+        <th>Adress</th>
+        <th>ZipCode</th>
+        <th>Adhenrent</th>
+        <th>Licencier</th>
+        <th>Admin</th>
+        <th>Super Admin</th>
+        <th class="text-center">Tools</th>
       </tr>
     </thead>
     <tbody>

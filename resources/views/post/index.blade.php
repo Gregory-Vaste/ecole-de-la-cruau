@@ -1,5 +1,15 @@
 @extends('layouts.app')
 @section('content')
+<div class="row">
+  <div class="col-lg-12 margin-tb">
+      <div class="float-left">
+          <h2>Index Post</h2>
+      </div>
+      <div class="float-right">
+          <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
+      </div>
+  </div>
+</div>
 <table class="table table-bordered table-responsive-xl mt-3">
     <thead class="thead-dark">
       <tr>
@@ -16,12 +26,12 @@
             <td>{{$post->description}}</td>
             <td>{{$post->autor}}</td>
             <td>{{$post->photo}}</td>
-            <td><a href="{{route('posts.show', $post->id)}}"> <i class="fas fa-eye"></i></a>
-                <a href="{{route('post.edit', $post->id)}}"> <i class="fas fa-book-open"></i></a>
+            <td><a href="{{route('posts.show', $post->id)}}">View</a>
+                <a href="{{route('post.edit', $post->id)}}">Edit</a>
                <form action="{{route('posts.destroy', $post->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <i class="fas fa-trash-alt"></i>
+                Delete
             </td>
          </tr>
     

@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 @section('content')
-                    <a href="{{route('create.user')}}" class="btn btn-primary">Edit User</a>
+                   
                 @endsection
             </div>
         </div>
