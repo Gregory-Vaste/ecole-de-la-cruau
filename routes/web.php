@@ -26,10 +26,13 @@ Route::middleware(['auth:sanctum', 'verified', 'userAuth'])->get('/dashboard', f
     return view('dashboard');
 })->name('dashboard');
 
+//route for admin and super admin #user
 Route::get('index/user', [UserController::class, 'index'])->name('index.user')->middleware('autorize_access');
 Route::get('create/user', [UserController::class, 'create'])->name('create.user')->middleware('autorize_access');
 //Route::get('show/user', [UserController::class, 'show'])->name('edit.user')->middleware('autorize_access');
 Route::get('edit/user', [UserController::class, 'edit'])->name('delete.user')->middleware('autorize_access');
 Route::get('update/user', [UserController::class, 'update'])->name('update.user')->middleware('autorize_access');
 Route::get('delete/user', [UserController::class, 'destroy'])->name('delete.user')->middleware('autorize_access');
+
+Route::resource('posts', PostController::class); 
 

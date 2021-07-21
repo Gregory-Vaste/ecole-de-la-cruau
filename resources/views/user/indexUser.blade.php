@@ -25,9 +25,10 @@
             <td>{{$user->is_adherent}}</td>
             <td>{{$user->is_licencier}}</td>
             <td>{{$user->is_superAdmin}}</td>
-            <td><i class="fas fa-trash-alt">{{'delete.user'}}</i>
-                <i class="fas fa-book-open">{{'edit.user'}}</i>
-                <i class="fas fa-eye">{{'view.user'}}</i>
+            <td>
+                <a href="{{'edit.user'}}"class="btn btn-info">Edit</a>
+                <a href="{{'view.user'}}" class="btn btn-primary">view</a>
+                <a href="{{'delete.user'}}" class="btn btn-danger">delete</a>
             </td>
          </tr>
     
