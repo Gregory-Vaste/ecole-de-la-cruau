@@ -18,12 +18,12 @@
                 {{-- user show/ user edit condition --}}
                 @if (auth()->user()->is_admin || auth()->user()->is_superAdmin )
 
-                <x-jet-nav-link href="{{ route('edit.user') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Edit User') }}
+                <x-jet-nav-link href="{{ route('index.user') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Users') }}
                 </x-jet-nav-link>
 
-                <x-jet-nav-link href="{{ route('show.user') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Show User') }}
+                <x-jet-nav-link href="{{ route('create.user') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Create User') }}
                 </x-jet-nav-link>
                 @endif
                 
