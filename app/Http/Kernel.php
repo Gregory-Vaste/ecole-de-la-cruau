@@ -63,19 +63,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
-        
-        //admin auth 
+        //user auth redirect
+        'userAuth'=> \App\Http\Middleware\UserAuth::class,
 
-        'admin' => \App\Http\Middleware\Admin::class,
-
-        //licencier auth
-        'licencier'=> \App\Http\Middleware\Licencier::class,
-
-        //adherent auth
-        'adhenrent'=> \App\Http\Middleware\Adherent::class,
-
-        //superAdmin
-        'superAdmin' =>\App\Http\Middleware\SuperAdmin::class,
-
+        //user authorize
+        'autorize_access' => \App\Http\Middleware\autorize_access::class,
     ];
 }

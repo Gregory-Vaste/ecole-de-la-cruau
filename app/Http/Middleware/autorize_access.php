@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class SuperAdmin
+class autorize_access
 {
     /**
      * Handle an incoming request.
@@ -16,11 +16,9 @@ class SuperAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-         //if log is true return role page else return home page and error
-         if(auth()->user()->is_superAdmin == 4)
-         {
-             return $next($request);
-         }
-         return redirect('home')->with('error',"Only for super Admin");
+        if(!(auth()->user()->is_admin || auth()->user()->is_superAdmin )){
+            abort(403);
+        }
+        return $next($request);
     }
 }

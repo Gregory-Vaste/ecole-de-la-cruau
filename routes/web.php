@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
+use App\Http\Middleware\UserAuth;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +18,13 @@ use App\Http\Controllers\IndexController;
 */
 Route::get('/',[IndexController::class, 'indexForAll'])->name('/');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('admin/home', 'HomeController@handleAdmin')->name('admin.route')->middleware('admin');
-Route::get('licencier/home', 'HomeController@handlicencier')->name('licencier.route')->middleware('licencier');
-Route::get('adherent/home', 'HomeController@handleAdherent')->name('adherent.route')->middleware('adherent');
-Route::get('super admin/home', 'HomeController@handleSuperAdmin')->name('superAdmin.route')->middleware('superAdmin');
-
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+Route::get('admin/home', 'HomeController@handleAdmin')->name('admin.route');
+Route::get('licencier/home', 'HomeController@handlelicencier')->name('licencier.route');
+Route::get('adherent/home', 'HomeController@handleAdherent')->name('adherent.route');
+Route::get('super admin/home', 'HomeController@handleSuperAdmin')->name('superAdmin.route');
+Route::middleware(['auth:sanctum', 'verified', 'userAuth'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('edit/user', [UserController::class, 'edit_user'])->name('edit.user')->middleware('autorize_access');
+Route::get('show/user', [UserController::class, 'show_user'])->name('show.user')->middleware('autorize_access');

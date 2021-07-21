@@ -16,12 +16,15 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('firstname');
+            $table->string('adress');
+            $table->string('zipCode');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
             $table->boolean('is_admin')->default(false);
-            $table->boolean('is_icencier')->default(false);
+            $table->boolean('is_licencier')->default(false);
             $table->boolean('is_adherent')->default(false);
             $table->boolean('is_superAdmin')->default(false);
             $table->foreignId('current_team_id')->nullable();

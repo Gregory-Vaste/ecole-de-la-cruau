@@ -15,7 +15,7 @@ class HomeController extends Controller
     //show the application dashboard
     public function index()
     {
-        return view('home');
+        return view('index');
     }
 
     public function handleAdmin()

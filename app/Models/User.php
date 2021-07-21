@@ -31,6 +31,9 @@ class User extends Authenticatable
         'is_icencier',
         'is_adherent',
         'is_superAdmin',
+        'firstname',
+        'adress',
+        'zipCode',
     ];
 
     /**
