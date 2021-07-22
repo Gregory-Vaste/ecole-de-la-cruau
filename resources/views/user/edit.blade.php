@@ -11,12 +11,13 @@
             @else
               <a class="btn btn-primary" href="{{ route('superAdmin.route') }}"> Back</a>
             @endif
-            <a class="btn btn-primary" href="{{ route('create.user') }}">add user</a>
+            <a class="btn btn-info" href="{{ route('create.user') }}">add user</a>
+          
         </div>
     </div>
 </div>
 <div class="card-body">
-  <form method="POST" action="{{ route('edit.user') }}">
+  <form method="POST" action="{{ route('store.user') }}">
       @csrf
 
       <div class="form-group">
@@ -70,19 +71,19 @@
           <x-jet-input class="form-control" type="password" name="password_confirmation" required autocomplete="new-password" />
       </div>
       <div class="form-check">
-        <x-jet-input type="checkbox" class="form-check-input" name="is_licencier">
+        <input type="checkbox" class="form-check-input" name="is_licencier">
         <label class="form-check-label" for="is_licencier">Licencier</label>
       </div>
       <div class="form-check">
-        <x-jet-input type="checkbox" class="form-check-input" id="is_adherent">
+        <input type="checkbox" class="form-check-input" id="is_adherent">
         <label class="form-check-label" for="is_licencier">Adherent</label>
       </div>
       <div class="form-check">
-        <x-jet-input type="checkbox" class="form-check-input" id="is_admin">
+        <input type="checkbox" class="form-check-input" id="is_admin">
         <label class="form-check-label" for="is_licencier">Admin</label>
       </div>
       <div class="form-check">
-        <x-jet-input type="checkbox" class="form-check-input" id="is_superAdmin">
+        <input type="checkbox" class="form-check-input" id="is_superAdmin">
         <label class="form-check-label" for="is_licencier">Super Admin</label>
       </div>
       
@@ -107,9 +108,9 @@
               <x-jet-button>
                   {{ __('Submit') }}
               </x-jet-button>
-              <x-jet-button>
+              {{-- <x-jet-button>
                   {{ __('Reset') }}
-              </x-jet-button>
+              </x-jet-button> --}}
           </div>
       </div>
   </form>

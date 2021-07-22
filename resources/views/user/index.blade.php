@@ -43,7 +43,6 @@
             <td>{{$user->is_superAdmin}}</td>
             <td>
                 <a href="{{'edit.user'}}"class="btn btn-info">Edit</a>
-                <a href="{{'view.user'}}" class="btn btn-primary">view</a>
                 <a href="{{'delete.user'}}" class="btn btn-danger">delete</a>
             </td>
          </tr>

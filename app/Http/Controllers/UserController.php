@@ -32,6 +32,10 @@ class UserController extends Controller
             "zipCode" => 'required',
             "email" => 'required',
             "password" => 'required',
+            "is_admin" => 'required',
+            "is_superAdmin" => 'required',
+            "is_adherent" => 'required',
+            "is_licencier" => 'required',
             
            
         ]);
@@ -58,6 +62,10 @@ class UserController extends Controller
             "zipCode" => 'required',
             "email" => 'required',
             "password" => 'required',
+            "is_admin" => 'required',
+            "is_superAdmin" => 'required',
+            "is_adherent" => 'required',
+            "is_licencier" => 'required',
             
            
         ]);

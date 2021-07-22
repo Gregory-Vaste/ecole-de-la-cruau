@@ -7,6 +7,7 @@
       </div>
       <div class="float-right">
           <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
+          <a class="btn btn-info" href="{{ route('post.create') }}">Add Post</a>
       </div>
   </div>
 </div>
