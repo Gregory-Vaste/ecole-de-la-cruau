@@ -14,6 +14,9 @@
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
+                <x-jet-nav-link href="{{ route('products.show') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Boutique') }}
+                </x-jet-nav-link>
 
                 {{-- user show/ user edit condition --}}
                 @if (auth()->user()->is_admin || auth()->user()->is_superAdmin )
@@ -33,6 +36,15 @@
                     <x-jet-nav-link href="{{ route('post.create') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Create Article') }}
                     </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Products') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('dashboard')">
+                        {{ __('Create Products') }}
+                    </x-jet-nav-link>
+
                 @endif
                 
             </ul>

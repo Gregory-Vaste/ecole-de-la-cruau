@@ -15,8 +15,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all()->with('categories')->get();
-        $categories = Category::where('is-true',1)->get();
+        $products = Product::all();
+        $categories = Category::where('is_true',1)->get();
 
         return view('ecommerce/index',compact('products','categories'));
     }

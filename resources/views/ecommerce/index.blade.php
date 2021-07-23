@@ -3,11 +3,11 @@
 <div class="row">
   <div class="col-lg-12 margin-tb">
       <div class="float-left">
-          <h2>Index Post</h2>
+          <h2>Index Product</h2>
       </div>
       <div class="float-right">
           <a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-          <a class="btn btn-info" href="{{ route('product.create') }}">Add Post</a>
+          <a class="btn btn-info" href="{{ route('products.create') }}">Add Product</a>
       </div>
   </div>
 </div>
