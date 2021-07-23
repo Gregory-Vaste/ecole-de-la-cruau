@@ -24,7 +24,7 @@
                 </x-jet-nav-link>
 
                 {{-- user show/ user edit condition --}}
-                @if (auth()->user()->is_admin || auth()->user()->is_superAdmin )
+                @if (auth()->user() && (auth()->user()->is_admin || auth()->user()->is_superAdmin) )
 
                     <x-jet-nav-link href="{{ route('index.user') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Users') }}
@@ -46,7 +46,7 @@
                         {{ __('Products') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('dashboard')">
+                    <x-jet-nav-link href="{{ route('products.create') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Create Products') }}
                     </x-jet-nav-link>
 

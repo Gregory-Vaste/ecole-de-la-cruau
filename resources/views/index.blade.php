@@ -22,7 +22,41 @@
 </head>
 <body>
     <div class="container-fluid fixed-top p-4">
+      <div class="row">
         <div class="col-12">
+          <nav class="navbar navbar-expand-lg navbar-light ">
+            <a class="navbar-brand" href="{{route('/')}}">Raseteur-Miramas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{{route('/')}}">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="{{route('products.show')}}">Boutique</a>
+                <a href="{{route('show.post')}}" class="nav-item nav-link">Article</a>
+              </div>
+            </div>
+            @if (Route::has('login'))
+              <ul class="navbar-nav navbar-right">
+                @auth
+                  <li>
+                    <a href="{{ url('/dashboard') }}" class="text-muted">Dashboard</a>
+                  </li>
+                @else
+                  <li>
+                    <a href="{{ route('login') }}" class="text-muted">Log in</a>
+                  </li>
+                  @if (Route::has('register'))
+                    <li>
+                      <a href="{{ route('register') }}" class="ml-4 text-muted">Register</a>
+                    </li>
+                  @endif
+                @endif
+              </ul>
+              @endif
+          </nav>
+        </div>
+        {{-- <div class="col-12 col-md-6">
             <div class="d-flex justify-content-end">
                 @if (Route::has('login'))
                     <div class="">
@@ -39,42 +73,10 @@
                 @endif
             </div>
         </div>
+      </div>  --}}
     </div>
-
-    <div class="container-fluid my-5 pt-5 px-5">
-       
-    </div>
-    <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-       
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-        @livewireStyles
-
-        <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased bg-light">
         <x-jet-banner />
-        @livewire('navigation-menu')
-
-        <!-- Page Heading -->
-        <header class="d-flex py-3 bg-white shadow-sm border-bottom">
-            <div class="container">
-                {{-- {{ $header }} --}}
-            </div>
-        </header>
+        {{-- @livewire('navigation-menu') --}}
 
         <!-- Page Content -->
         <main class="container my-5">
@@ -88,11 +90,6 @@
     <section
       class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
     >
-      <!-- Left -->
-      <div class="me-5 d-none d-lg-block">
-        <span>Nous contacter:</span>
-      </div>
-      <!-- Left -->
   
       <!-- Right -->
       <div>

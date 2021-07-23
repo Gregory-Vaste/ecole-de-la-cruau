@@ -29,7 +29,7 @@ class HomeController extends Controller
     }
     public function handleAdherent()
     {
-        return view('dashboard');
+        return view('handleAderent');
     }
     public function handleSuperAdmin()
     {

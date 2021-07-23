@@ -58,11 +58,13 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show(Request $request)
     {
-        $categories = Category::where('is-true',1)->get();
-        $products = product::find($request->id);
-        return view('ecommerce/show', compact('products','categories'));
+        // $categories = Category::where('is_true',1)->get();
+        $products = product::all();
+        //$products = product::find(1);
+        //product::random(1);
+        return view('ecommerce/show', compact('products'));
     }
 
     /**

@@ -16,7 +16,7 @@ class AuthorizeUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!(auth()->user()->is_licencier || auth()->user()->is_adherent )){
+        if(auth()->user() && !(auth()->user()->is_licencier || auth()->user()->is_adherent )){
             abort(403);
         }
         return $next($request);

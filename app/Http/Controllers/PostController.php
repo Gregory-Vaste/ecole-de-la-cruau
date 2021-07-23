@@ -57,9 +57,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        return view('post/show',);
+        $posts = Post::all();
+        // Post::random(1);
+        return view('post/show',compact('posts'));
     }
 
     /**
