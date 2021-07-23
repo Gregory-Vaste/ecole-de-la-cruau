@@ -11,7 +11,7 @@
         </div>
     </div>
 </div>
-    <form action="{{route('product.store')}}" method="POST">
+    <form action="{{route('products.store')}}" method="POST">
         @csrf
         <div class="form-group mt-4">
             <x-jet-label value="{{ __('Name') }}" />

@@ -14,8 +14,13 @@
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
+
                 <x-jet-nav-link href="{{ route('products.show') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Boutique') }}
+                </x-jet-nav-link>
+
+                <x-jet-nav-link href="{{ route('show.post') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Article') }}
                 </x-jet-nav-link>
 
                 {{-- user show/ user edit condition --}}

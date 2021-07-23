@@ -27,12 +27,13 @@
             <td>{{$post->description}}</td>
             <td>{{$post->autor}}</td>
             <td>{{$post->photo}}</td>
-            <td><a href="{{route('posts.show', $post->id)}}">View</a>
-                <a href="{{route('post.edit', $post->id)}}">Edit</a>
+            <td><a href="{{route('show.post', $post->id)}}" class="btn btn-info">View</a>
+                <a href="{{route('post.edit', $post->id)}}"class="btn btn-primary">Edit</a>
                <form action="{{route('posts.destroy', $post->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                Delete
+                <button class="btn btn-danger"> Delete</button>
+               
             </td>
          </tr>
     

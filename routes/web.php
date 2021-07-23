@@ -43,7 +43,7 @@ Route::get('posts/index',[PostController::class, 'index'])->name('posts.index')-
 Route::get('create/post',[PostController::class, 'create'])->name('post.create')->middleware('autorize_access');
 Route::put('update/post',[PostController::class, 'update'])->name('post.update')->middleware('autorize_access');
 Route::post('store/post',[PostController::class, 'store'])->name('post.store')->middleware('autorize_access');
-Route::delete('delete/post',[PostController::class, 'destroy'])->name('post.update')->middleware('autorize_access');
+Route::delete('delete/post',[PostController::class, 'destroy'])->name('posts.destroy')->middleware('autorize_access');
 Route::get('edit/post', [PostController::class, 'edit'])->name('post.edit')->middleware('autorize_access');
 Route::get('show/post', [PostController::class, 'show'])->name('show.post')->middleware('authorizeUser');
 

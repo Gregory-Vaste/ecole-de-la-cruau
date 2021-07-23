@@ -29,7 +29,7 @@
         </div>
         <div class="form-group">
             <label for="description">{{__('Description')}}</label>
-            <textarea class="{{ $errors->has('description') ? 'is-invalid' : '' }} border-rounded" id="description" cols="140" rows="10" :value="old('description')" required autofocus autocomplete="autor"></textarea>
+            <textarea class="{{ $errors->has('description') ? 'is-invalid' : '' }} border-rounded" id="description" cols="140" rows="10" :value="old('description')" required autofocus autocomplete="autor" name="description"></textarea>
             
         </div>
 
