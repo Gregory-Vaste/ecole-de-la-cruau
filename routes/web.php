@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 use App\Http\Middleware\UserAuth;
 use App\Http\Controllers\UserController;
 
@@ -32,22 +33,27 @@ Route::get('index/user', [UserController::class, 'index'])->name('index.user')->
 Route::get('create/user', [UserController::class, 'create'])->name('create.user')->middleware('autorize_access');
 //Route::get('show/user', [UserController::class, 'show'])->name('edit.user')->middleware('autorize_access');
 Route::get('edit/user', [UserController::class, 'edit'])->name('edit.user')->middleware('autorize_access');
-Route::get('update/user', [UserController::class, 'update'])->name('update.user')->middleware('autorize_access');
-Route::get('delete/user', [UserController::class, 'destroy'])->name('delete.user')->middleware('autorize_access');
+Route::put('update/user', [UserController::class, 'update'])->name('update.user')->middleware('autorize_access');
+Route::delete('delete/user', [UserController::class, 'destroy'])->name('delete.user')->middleware('autorize_access');
 Route::post('store/user', [UserController::class, 'store'])->name('store.user')->middleware('autorize_access');
 
 
 //route for crud Post and show
 Route::get('posts/index',[PostController::class, 'index'])->name('posts.index')->middleware('autorize_access');
 Route::get('create/post',[PostController::class, 'create'])->name('post.create')->middleware('autorize_access');
-Route::get('update/post',[PostController::class, 'update'])->name('post.update')->middleware('autorize_access');
+Route::put('update/post',[PostController::class, 'update'])->name('post.update')->middleware('autorize_access');
 Route::post('store/post',[PostController::class, 'store'])->name('post.store')->middleware('autorize_access');
-Route::get('delete/post',[PostController::class, 'destroy'])->name('post.update')->middleware('autorize_access');
+Route::delete('delete/post',[PostController::class, 'destroy'])->name('post.update')->middleware('autorize_access');
 Route::get('edit/post', [PostController::class, 'edit'])->name('post.edit')->middleware('autorize_access');
 Route::get('show/post', [PostController::class, 'show'])->name('show.post')->middleware('authorizeUser');
 
 // route for crud tag 
 
 // route for a crud product 
-
+Route::get('products/index',[ProductController::class, 'index'])->name('products.index')->middleware('autorize_access');
+Route::get('products/create',[ProductController::class, 'create'])->name('products.create')->middleware('autorize_access');
+Route::put('products/update',[ProductController::class, 'update'])->name('products.update')->middleware('autorize_access');
+Route::post('products/store',[ProductController::class, 'store'])->name('products.store')->middleware('autorize_access');
+Route::get('products/show',[ProductController::class, 'show'])->name('products.show')->middleware('authorizeUser');
+Route::delete('products/edit',[ProductController::class, 'edit'])->name('products.edit')->middleware('autorize_access');
 // route for crud category
