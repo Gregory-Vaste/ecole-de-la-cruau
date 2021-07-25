@@ -14,7 +14,7 @@
   <form method="POST" action="{{ route('store.user') }}">
       @csrf
 
-      <div class="form-group">
+      <div class="form-group mt-4">
           <x-jet-label value="{{ __('Name') }}" />
 
           <x-jet-input class="{{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name"
@@ -68,45 +68,27 @@
      
     <div class="form-check">
       <input type="checkbox" class="form-check-input" name="is_licencier">
-      <label class="form-check-label" for="is_licencier">Licencier</label>
+      <label class="form-check-label{{$errors->has('is_licencier') ? 'is-invalide' : ''}}" for="is_licencier" value="is_licencier">{{__('Licencier')}}</label>
     </div>
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="is_adherent">
-      <label class="form-check-label" for="is_licencier">Adherent</label>
+      <label class="form-check-label{{$errors->has('is_adherent') ? 'is-invalide' : ''}}" for="is_licencier" value="is_adherent">{{__('Adherent')}}</label>
     </div>
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="is_admin">
-      <label class="form-check-label" for="is_licencier">Admin</label>
+      <label class="form-check-label{{$errors->has('is_admin') ? 'is-invalide' : ''}}" for="is_licencier" value="is_admin">{{__('Admin')}}</label>
     </div>
     <div class="form-check">
       <input type="checkbox" class="form-check-input" id="is_superAdmin">
-      <label class="form-check-label" for="is_licencier">Super Admin</label>
+      <label class="form-check-label{{$errors->has('is_superAdmin') ? 'is-invalide' : ''}}" for="is_licencier" value="is_superAdmin">{{__('Super Admin')}}</label>
     </div>
-
-      @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-          <div class="form-group">
-              <div class="custom-control custom-checkbox">
-                  <x-jet-checkbox id="terms" name="terms" />
-                  <label class="custom-control-label" for="terms">
-                      {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                  'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'">'.__('Terms of Service').'</a>',
-                                  'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'">'.__('Privacy Policy').'</a>',
-                          ]) !!}
-                  </label>
-              </div>
-          </div>
-      @endif
-
-      <div class="mb-0">
-          <div class="d-flex justify-content-end align-items-baseline">
-              <x-jet-button>
-                  {{ __('Submit') }}
-              </x-jet-button>
-              {{-- <x-jet-button>
-                  {{ __('Reset') }}
-              </x-jet-button> --}}
-          </div>
-      </div>
+    <div class="mb-0">
+        <div class="d-flex justify-content-end align-items-baseline">
+            <x-jet-button>
+                {{ __('Submit') }}
+            </x-jet-button>
+        </div>
+    </div>
   </form>
 </div>
 @endsection

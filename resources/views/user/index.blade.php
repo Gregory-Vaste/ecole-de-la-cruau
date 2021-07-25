@@ -37,15 +37,19 @@
             <td>{{$user->firstname}}</td>
             <td>{{$user->adress}}</td>
             <td>{{$user->zipCode}}</td>
-            <td>{{$user->is_admin}}</td>
             <td>{{$user->is_adherent}}</td>
             <td>{{$user->is_licencier}}</td>
+            <td>{{$user->is_admin}}</td>
             <td>{{$user->is_superAdmin}}</td>
-            <td>
-                <a href="{{route('edit.user')}}"class="btn btn-info btn">Edit</a>
-                <a href="{{route('delete.user')}}" class="btn btn-danger btn">delete</a>
-                <a href="{{route('show.user')}}" class="btn btn-primary btn">view</a>
-            </td>
+            <td class="btn-group" role="group">
+              <form action="{{route('delete.user',$user->id)}}" method="POST">
+                <a href="{{route('show.user', $user->id)}}" class="btn btn-info mr-4">View</a>
+                <a href="{{route('edit.user', $user->id)}}"class="btn btn-primary mr-4">Edit</a>
+                 @csrf
+                @method('DELETE')
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
          </tr>
     
       @endforeach

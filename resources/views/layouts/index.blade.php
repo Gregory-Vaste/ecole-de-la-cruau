@@ -34,6 +34,7 @@
                 <a class="nav-item nav-link active" href="{{route('/')}}">Home <span class="sr-only">(current)</span></a>
               
                 <a href="{{route('articles.index')}}" class="nav-item nav-link">Articles</a>
+                <a href="{{route('partnerView.index')}}" class="nav-item nav-link">Partenaires</a>
               </div>
             </div>
             @if (Route::has('login'))

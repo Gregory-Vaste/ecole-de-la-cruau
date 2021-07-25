@@ -38,7 +38,6 @@
                 <x-jet-button>
                     {{ __('Validate') }}
                 </x-jet-button>
-               
             </div>
         </div>
     </form>

@@ -14,18 +14,22 @@
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('show.post') }}" :active="request()->routeIs('dashboard')">
+                <x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('article')">
                     {{ __('Article') }}
+                </x-jet-nav-link>
+
+                <x-jet-nav-link href="{{ route('partnerView.index') }}" :active="request()->routeIs('partner')">
+                    {{ __('Partner') }}
                 </x-jet-nav-link>
 
                 {{-- user show/ user edit condition --}}
                 @if (auth()->user() && (auth()->user()->is_admin || auth()->user()->is_superAdmin) )
 
                     <div class="dropdown">
-                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownBoutique" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuUser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('Users') }}
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuUser">
                         <a class="dropdown-item" href="{{ route('index.user') }}">{{'Users'}}</a>
                         <a class="dropdown-item" href="{{ route('create.user') }}">{{ __('Create User') }}</a>
                         </div>
@@ -35,12 +39,30 @@
                         <button class="btn btn-light dropdown-toggle" type="button" id="dropdownBoutique" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('Activité') }}
                         </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu" aria-labelledby="dropdownBoutique">
                         <a class="dropdown-item" href="{{ route('posts.index') }}">{{ __('Article') }}</a>
                         <a class="dropdown-item" href="{{ route('post.create') }}">{{ __('Create Article') }}</a>
                         </div>
                     </div>
-                   
+                   <div class="dropdown">
+                       <button type="button" class="btn btn-light dropdown-toggle" id="dropdowPartner" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           {{__('Partner')}}
+                       </button>
+                       <div class="dropdown-menu" aria-labelledby="dropdownPartner">
+                        <a class="dropdown-item" href="{{ route('partners.index') }}">{{ __('Partners') }}</a>
+                        <a class="dropdown-item" href="{{ route('partner.create') }}">{{ __('Create Partner') }}</a>
+                        </div>
+                   </div>
+
+                   {{-- <div class="dropdown">
+                       <button type="button" class="btn btn-light dropdown-toggle" id="dropdowMailler" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           {{__('Mailler')}}
+                       </button>
+                       <div class="dropdown-menu" aria-labelledby="dropdownMailler">
+                        <a class="dropdown-item" href="{{ route('email.create') }}">{{ __('Create Email') }}</a>
+                        <a class="dropdown-item" href="{{ route('partner.create') }}">{{ __('Create Partner') }}</a>
+                        </div>
+                   </div> --}}
 
                 @endif
                 

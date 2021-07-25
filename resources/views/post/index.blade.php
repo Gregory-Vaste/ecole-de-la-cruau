@@ -27,13 +27,14 @@
             <td>{{$post->description}}</td>
             <td>{{$post->autor}}</td>
             <td class="btn-group" role="group">
-              <a href="{{route('show.post', $post->id)}}" class="btn btn-info mr-4">View</a>
+              <form action="{{route('post.delete',$post->id)}}" method="POST">
+                <a href="{{route('show.post', $post->id)}}" class="btn btn-info mr-4">View</a>
                 <a href="{{route('post.edit', $post->id)}}"class="btn btn-primary mr-4">Edit</a>
-                <a href="{{route('post.delete', $post->id)}}" class="btn btn-danger btn">delete</a>
-                @csrf
+                 @csrf
                 @method('DELETE')
-               
-            </td>
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </td>
          </tr>
     
       @endforeach

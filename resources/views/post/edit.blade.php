@@ -38,12 +38,12 @@
                          :value="old('autor')" required autofocus autocomplete="autor" />
             <x-jet-input-error for="autor"></x-jet-input-error>
         </div>
+      
         <div class="form-group">
-            <x-jet-label value="{{__('Description')}}" />
-            <x-jet-textarea class="{{$errors->has('description') ? 'is-invalid' : ''}}" style="height: 150px" name="description"
-                            :value="old('description')" required autofocus autocomplete="autor" />
-            <x-jet-input-error for="description"/></x-jet-input-error>
+            <label for="description">{{__('Description')}}</label>
+            <textarea class="{{ $errors->has('description') ? 'is-invalid' : '' }} border-rounded" id="description" cols="140" rows="10" :value="old('description')" required autofocus autocomplete="autor" name="description"></textarea>   
         </div>
+    
 
         <div class="mb-0">
             <div class="d-flex justify-content-end align-items-baseline">

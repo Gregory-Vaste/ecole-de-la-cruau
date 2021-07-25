@@ -43,11 +43,11 @@ class PostController extends Controller
             'description' => 'required',
             'autor' => 'required',
         ]);
-
         Post::create($request->all());
 
         return 
-            redirect()->route('posts.index')->with('success', 'Post create successfully.');
+            redirect()->route('posts.index')
+            ->with('success', 'Post create successfully.');
 
     }
 
@@ -82,13 +82,18 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
         $request->validate([
             'title' => 'required',
             'description' => 'required',
             'autor' => 'required',
         ]);
+        $post->update($request->all());
+
+        return redirect()->route('posts.index')
+            ->with('success', 'User update successfully');
+        
     }
 
     /**
@@ -100,7 +105,7 @@ class PostController extends Controller
     public function destroy($post)
     {
         $post->delete();
-        return redirect()->route('posts.index')
+        return redirect()->route('posts/index')
                         ->with('success', 'post delete successfully');
     }
 }
