@@ -1,26 +1,42 @@
 @extends('layouts.app')
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="float-left">
-                <h2>L'Ecole en action</h2>
-            </div>
-            <div class="float-right">
-                <a class="btn btn-primary" href="{{ route('posts.index') }}"> Back</a>
-            </div>
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="float-left">
+            <h2>Show User</h2>
         </div>
+        <div class="float-right">
+            <a class="btn btn-primary" href="{{ route('index.user') }}"> Back</a>
+      </div>
+       
     </div>
-    <div class="card-deck">
-        @foreach ( $posts as $post  )
-             <div class="card">
-            {{-- <img class="card-img-top" src="" alt="Card image cap"> --}}
-            <div class="card-body">
-                <h5 class="card-title">{{$post->title}}</h5>
-                <p class="card-text">{{$post->description}}</p>
-                <p class="card-text"><small class="text-muted">{{$post->autor}}</small></p>
-            </div>
-            </div> 
-        @endforeach
-   
   </div>
+  <table class="table table-bordered table-responsive-xl mt-3">
+      <thead class="thead-dark">
+        <tr>
+            <th class="text-center">Title</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Autor</th>
+            <th class="text-center">Photo</th>
+            <th class="text-center">Tools</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr>
+              <td>{{$post->title}}</td>
+              <td>{{$post->description}}</td>
+              <td>{{$post->autor}}</td>
+              <td>{{$post->photo}}</td>
+              <td>
+                  <a href="{{route('post.edit', $post->id)}}"class="btn btn-info ">Edit</a>
+                  @csrf
+                   @method('DELETE')
+                  <a href="{{route('post.delete', $post->id)}}"class="btn btn-danger">Delete</a>
+                  
+              </td>
+           </tr>
+      
+  
+      </tbody>
+    </table>   
 @endsection

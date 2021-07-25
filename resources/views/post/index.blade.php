@@ -17,7 +17,7 @@
         <th>Title</th>
         <th>Description</th>
         <th>Autor</th>
-        <th>Photo</th>
+        <th>Tools</th>
       </tr>
     </thead>
     <tbody>
@@ -26,13 +26,12 @@
             <td>{{$post->title}}</td>
             <td>{{$post->description}}</td>
             <td>{{$post->autor}}</td>
-            <td>{{$post->photo}}</td>
-            <td><a href="{{route('show.post', $post->id)}}" class="btn btn-info">View</a>
-                <a href="{{route('post.edit', $post->id)}}"class="btn btn-primary">Edit</a>
-               <form action="{{route('posts.destroy', $post->id)}}" method="POST">
+            <td class="btn-group" role="group">
+              <a href="{{route('show.post', $post->id)}}" class="btn btn-info mr-4">View</a>
+                <a href="{{route('post.edit', $post->id)}}"class="btn btn-primary mr-4">Edit</a>
+                <a href="{{route('post.delete', $post->id)}}" class="btn btn-danger btn">delete</a>
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger"> Delete</button>
                
             </td>
          </tr>

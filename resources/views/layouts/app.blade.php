@@ -67,9 +67,9 @@
                     <p>
                       <a href="{{route('/')}}" class="text-reset">Home</a>
                     </p>
-                    <p>
+                    {{-- <p>
                       <a href="{{route('products.show')}}" class="text-reset">Boutique</a>
-                    </p>
+                    </p> --}}
                     <p>
                       <a href="{{route('show.post')}}" class="text-reset">Article</a>
                     </p>

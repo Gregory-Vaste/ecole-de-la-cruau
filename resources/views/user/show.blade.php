@@ -3,15 +3,10 @@
 <div class="row">
   <div class="col-lg-12 margin-tb">
       <div class="float-left">
-          <h2>Index User</h2>
+          <h2>Show User</h2>
       </div>
       <div class="float-right">
-        @if (auth()->user()->is_admin)
-          <a class="btn btn-primary" href="{{ route('admin.route') }}"> Back</a>
-        @else
-          <a class="btn btn-primary" href="{{ route('superAdmin.route') }}"> Back</a>
-        @endif
-        <a class="btn btn-primary" href="{{ route('create.user') }}">add user</a>
+          <a class="btn btn-primary" href="{{ route('index.user') }}"> Back</a>
     </div>
      
   </div>
@@ -31,7 +26,6 @@
       </tr>
     </thead>
     <tbody>
-      @foreach ($users as $user)
           <tr>
             <td>{{$user->name}}</td>
             <td>{{$user->firstname}}</td>
@@ -42,13 +36,14 @@
             <td>{{$user->is_licencier}}</td>
             <td>{{$user->is_superAdmin}}</td>
             <td>
-                <a href="{{route('edit.user')}}"class="btn btn-info btn">Edit</a>
-                <a href="{{route('delete.user')}}" class="btn btn-danger btn">delete</a>
-                <a href="{{route('show.user')}}" class="btn btn-primary btn">view</a>
+                <a href="{{route('edit.user', $user->id)}}"class="btn btn-info btn">Edit</a>
+                @csrf
+                @method('DELETE')
+                <a href="{{route('delete.user', $user->id)}}" class="btn btn-danger btn">delete</a>
             </td>
          </tr>
     
-      @endforeach
+
     </tbody>
   </table>   
 @endsection

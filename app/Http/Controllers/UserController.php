@@ -76,6 +76,11 @@ class UserController extends Controller
                 ->with('success', 'User update successfully');
 
     }
+    public function show(Request $request){
+        $user = User::find(1);
+        return view('user/show',compact('user'));
+
+    }
     //destroy user
     public function destroy(User $user)
     {

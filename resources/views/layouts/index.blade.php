@@ -26,14 +26,14 @@
         <div class="col-12">
           <nav class="navbar navbar-expand-lg navbar-light ">
             <a class="navbar-brand" href="{{route('/')}}">Raseteur-Miramas</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="collapse navbar-collapse" id="navbarNav">
               <div class="navbar-nav">
                 <a class="nav-item nav-link active" href="{{route('/')}}">Home <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="{{route('products.show')}}">Boutique</a>
-                <a href="{{route('show.post')}}" class="nav-item nav-link">Article</a>
+              
+                <a href="{{route('articles.index')}}" class="nav-item nav-link">Articles</a>
               </div>
             </div>
             @if (Route::has('login'))
@@ -117,9 +117,9 @@
             <p>
               <a href="{{route('/')}}" class="text-reset">Home</a>
             </p>
-            <p>
+            {{-- <p>
               <a href="{{route('products.show')}}" class="text-reset">Boutique</a>
-            </p>
+            </p> --}}
             <p>
               <a href="{{route('show.post')}}" class="text-reset">Article</a>
             </p>

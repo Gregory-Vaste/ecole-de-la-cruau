@@ -59,9 +59,9 @@ class PostController extends Controller
      */
     public function show(Request $request)
     {
-        $posts = Post::all();
+        $post = Post::find(1);
         // Post::random(1);
-        return view('post/show',compact('posts'));
+        return view('post/show',compact('post'));
     }
 
     /**

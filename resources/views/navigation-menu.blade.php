@@ -14,11 +14,6 @@
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
-
-                <x-jet-nav-link href="{{ route('products.show') }}" :active="request()->routeIs('dashboard')">
-                    {{ __('Boutique') }}
-                </x-jet-nav-link>
-
                 <x-jet-nav-link href="{{ route('show.post') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Article') }}
                 </x-jet-nav-link>
@@ -26,29 +21,26 @@
                 {{-- user show/ user edit condition --}}
                 @if (auth()->user() && (auth()->user()->is_admin || auth()->user()->is_superAdmin) )
 
-                    <x-jet-nav-link href="{{ route('index.user') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Users') }}
-                    </x-jet-nav-link>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownBoutique" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ __('Users') }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('index.user') }}">{{'Users'}}</a>
+                        <a class="dropdown-item" href="{{ route('create.user') }}">{{ __('Create User') }}</a>
+                        </div>
+                    </div>
 
-                    <x-jet-nav-link href="{{ route('create.user') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Create User') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('posts.index') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Article') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('post.create') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Create Article') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Products') }}
-                    </x-jet-nav-link>
-
-                    <x-jet-nav-link href="{{ route('products.create') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Create Products') }}
-                    </x-jet-nav-link>
+                    <div class="dropdown">
+                        <button class="btn btn-light dropdown-toggle" type="button" id="dropdownBoutique" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ __('Activité') }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="{{ route('posts.index') }}">{{ __('Article') }}</a>
+                        <a class="dropdown-item" href="{{ route('post.create') }}">{{ __('Create Article') }}</a>
+                        </div>
+                    </div>
+                   
 
                 @endif
                 
