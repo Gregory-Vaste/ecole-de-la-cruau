@@ -41,8 +41,8 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea name="description" id="description" style="height: 150px"></textarea>
+                    <label for="description_partner">Description:</label>
+                    <textarea name="description_partner" id="description_partner" style="height: 150px"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

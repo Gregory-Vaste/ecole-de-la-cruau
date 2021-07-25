@@ -8,6 +8,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\MaillerController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\PartnerViewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +22,10 @@ use App\Http\Controllers\PartnerController;
 */
 Route::get('/',[IndexController::class, 'indexForAll'])->name('/');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('admin/home', 'HomeController@handleAdmin')->name('admin.route');
-Route::get('licencier/home', 'HomeController@handlelicencier')->name('licencier.route');
-Route::get('adherent/home', 'HomeController@handleAdherent')->name('adherent.route');
-Route::get('super admin/home', 'HomeController@handleSuperAdmin')->name('superAdmin.route');
+Route::get('admin/home', 'HomeController@handleAdmin')->name('admin.route')->middleware('autorize_access');
+Route::get('licencier/home', 'HomeController@handlelicencier')->name('licencier.route')->middleware('authorizeUser');
+Route::get('adherent/home', 'HomeController@handleAdherent')->name('adherent.route')->middleware('authorizeUser');
+Route::get('super admin/home', 'HomeController@handleSuperAdmin')->name('superAdmin.route')->middleware('autorize_access');
 Route::middleware(['auth:sanctum', 'verified', 'userAuth'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
@@ -61,6 +62,12 @@ Route::get('partner/show',[PartnerController::class, 'show'])->name('partner.sho
 Route::get('partner/edit',[PartnerController::class, 'edit'])->name('partner.edit')->middleware('autorize_access');
 Route::post('partner/update',[PartnerController::class, 'update'])->name('partner.update')->middleware('autorize_access');
 Route::post('partner/destroy',[PartnerController::class, 'destroy'])->name('partner.destroy')->middleware('autorize_access');
+
+//route for user
+Route::get('/index/partner',[PartnerViewController::class, 'index'])->name('partnerView');
+
+// route for user auth
+Route::get('/index/partners',[PartnerViewController::class, 'indexAuth'])->name('partnerViewAuth.index');
 
 // // Route for mailler configuaration
 // Route::post('mailler/configuration',[MaillerController::class, 'createConfiguration'])->name('mailler.configue')->middleware('autorize_access');

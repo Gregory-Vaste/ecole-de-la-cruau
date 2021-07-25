@@ -11,18 +11,21 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
+              
                 <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Dashboard') }}
                 </x-jet-nav-link>
-                <x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('article')">
-                    {{ __('Article') }}
-                </x-jet-nav-link>
+                @if (auth()->user() || (auth()->user()->is_adherent || auth()->user()->is_licencier))
+                    {{-- user or licencier or adherent --}}
+                    <x-jet-nav-link href="{{ route('articles.index') }}" :active="request()->routeIs('article')">
+                        {{ __('Article') }}
+                    </x-jet-nav-link>
 
-                <x-jet-nav-link href="{{ route('partnerView.index') }}" :active="request()->routeIs('partner')">
-                    {{ __('Partner') }}
-                </x-jet-nav-link>
-
-                {{-- user show/ user edit condition --}}
+                    <x-jet-nav-link href="{{ route('partnerViewAuth.index') }}" :active="request()->routeIs('partner')">
+                        {{ __('Partner') }}
+                    </x-jet-nav-link>
+                @endif
+                {{-- admin && super auth--}}
                 @if (auth()->user() && (auth()->user()->is_admin || auth()->user()->is_superAdmin) )
 
                     <div class="dropdown">

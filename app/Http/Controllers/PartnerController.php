@@ -39,7 +39,7 @@ class PartnerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description_partner' => 'required',
             'image' => 'required|image|mimes:png,jpg|max:2048',
         ]);
 
@@ -68,7 +68,7 @@ class PartnerController extends Controller
      */
     public function show(Partner $partner)
     {
-        return view('partner/show', compact('product'));
+        return view('partner/show', compact('partner'));
     }
 
     /**
@@ -93,7 +93,7 @@ class PartnerController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'description' => 'required',
+            'description_partner' => 'required',
         ]);
 
         $input = $request->all();

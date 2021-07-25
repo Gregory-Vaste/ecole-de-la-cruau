@@ -20,13 +20,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
            <strong>Description:</strong>
-           {{$partner->description}}
+           {{$partner->description_partner}}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
            <strong>Image:</strong>
-            <img src="/image{{$product->image}}" style="width: 500px">
+            <img src="/image{{$partner->image}}" style="width: 160px">
         </div>
     </div>
 </div>

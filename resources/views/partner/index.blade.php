@@ -32,7 +32,7 @@
         @foreach ($partners as $partner)
             <tr>
               <td>{{$partner->name}}</td>
-              <td>{{$partner->description}}</td>
+              <td>{{$partner->description_partner}}</td>
               <td><img src="/image/{{$partner->image}}" width="100px"></td>
               <td class="btn-group" role="group">
                   <form action="{{route('partner.destroy',$partner->id)}}" method="POST">

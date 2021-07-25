@@ -34,7 +34,7 @@
                 <a class="nav-item nav-link active" href="{{route('/')}}">Home <span class="sr-only">(current)</span></a>
               
                 <a href="{{route('articles.index')}}" class="nav-item nav-link">Articles</a>
-                <a href="{{route('partnerView.index')}}" class="nav-item nav-link">Partenaires</a>
+                <a href="{{route('partnerView')}}" class="nav-item nav-link">Partenaires</a>
               </div>
             </div>
             @if (Route::has('login'))
@@ -118,11 +118,14 @@
             <p>
               <a href="{{route('/')}}" class="text-reset">Home</a>
             </p>
+            <p>
+              <a href="{{route('partnerView')}}" class="text-reset">Partenaires</a>
+            </p>
             {{-- <p>
               <a href="{{route('products.show')}}" class="text-reset">Boutique</a>
             </p> --}}
             <p>
-              <a href="{{route('show.post')}}" class="text-reset">Article</a>
+              <a href="{{route('articles.index')}}" class="text-reset">Article</a>
             </p>
           </div>
           <!-- Grid column -->

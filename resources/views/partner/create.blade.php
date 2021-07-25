@@ -49,9 +49,9 @@
                 </div>
         
                 <div class="form-group col-12">
-                    <label for="description">{{__('Description')}}</label>
-                    <textarea class="{{ $errors->has('description') ? 'is-invalid' : '' }} border-rounded" id="description" cols="140" rows="10"
-                        :value="old('description')" required autofocus autocomplete="description" name="description" placeholder="description partner"></textarea>
+                    <label for="description_partner">{{__('Description')}}</label>
+                    <textarea class="{{ $errors->has('description') ? 'is-invalid' : '' }} border-rounded" id="descriptionPartnerCreate" cols="140" rows="10"
+                        :value="old('description_partner')" required autofocus autocomplete="description_partner" name="description_partner" placeholder="description partner"></textarea>
                     
                 </div>
                 
