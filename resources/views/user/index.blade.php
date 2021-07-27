@@ -42,13 +42,13 @@
             <td>{{$user->is_admin}}</td>
             <td>{{$user->is_superAdmin}}</td>
             <td class="btn-group" role="group">
-              <form action="{{route('delete.user',$user->id)}}" method="POST">
-                <a href="{{route('show.user', $user->id)}}" class="btn btn-info mr-4">View</a>
+              <a href="{{route('show.user', $user->id)}}" class="btn btn-info mr-4">View</a>
                 <a href="{{route('edit.user', $user->id)}}"class="btn btn-primary mr-4">Edit</a>
+              <form action="{{route('delete.user',$user->id)}}" method="POST">
                  @csrf
                 @method('DELETE')
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
           </td>
          </tr>
     

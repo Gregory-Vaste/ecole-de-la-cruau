@@ -23,10 +23,10 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
-            $table->boolean('is_admin')->default(false);
-            $table->boolean('is_licencier')->default(false);
-            $table->boolean('is_adherent')->default(false);
-            $table->boolean('is_superAdmin')->default(false);
+            $table->boolean('is_admin')->default(false)->nullable();
+            $table->boolean('is_licencier')->default(false)->nullable();
+            $table->boolean('is_adherent')->default(false)->nullable();
+            $table->boolean('is_superAdmin')->default(false)->nullable();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
             $table->timestamps();

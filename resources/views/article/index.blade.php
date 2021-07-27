@@ -11,7 +11,9 @@
             <small class=" text-muted">{{$post->autor}}</small>
         
             <a href="{{route('article.show', $post->id)}}" class="btn btn-info float-right ">More</a>
-            {{-- <a class="like btn btn-primary float-right mr-3 clicks" onclick="click()">like: 0</a> --}}
+           <div class="like-section">
+               <button class="like btn btn-info" onclick="incrementLike">0 likes</button>
+           </div>
         </div>
         @endforeach
     </div>

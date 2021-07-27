@@ -9,7 +9,6 @@
                         {{$post->description}}
                     </p>
                     <small class="text-right text-muted">{{$post->autor}}</small>
-                    <a class="like btn btn-primary float-right mr-3 clicks" onclick="click()">like: 0</a>
                 </div>
             </div>
         </div>

@@ -3800,8 +3800,6 @@ module.exports = {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'like'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
 __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/alpine.js");
 
 /***/ }),

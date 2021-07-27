@@ -121,11 +121,12 @@ class PartnerController extends Controller
      * @param  \App\Models\Partner  $partner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Partner $partner)
+    public function destroy($id)
     {
+        $partner = Partner::find($id);
         $partner->delete();
 
-        return redirect()->route('partner.index')
+        return redirect()->route('partners.index')
 
                         ->with('success','Partner deleted successfully');
     }

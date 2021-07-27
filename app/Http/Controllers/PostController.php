@@ -102,10 +102,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($post)
+    public function destroy($id)
     {
+        // dd($id);
+        $post = Post::find($id);
         $post->delete();
-        return redirect()->route('posts/index')
+        return redirect()->route('posts.index')
                         ->with('success', 'post delete successfully');
     }
 }

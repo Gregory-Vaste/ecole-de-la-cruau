@@ -32,13 +32,14 @@ class UserController extends Controller
             "zipCode" => 'required',
             "email" => 'required',
             "password" => 'required',
-            "is_admin" => 'required',
-            "is_superAdmin" => 'required',
-            "is_adherent" => 'required',
-            "is_licencier" => 'required',
+            "is_admin",
+            "is_superAdmin",
+            "is_adherent",
+            "is_licencier",
             
            
         ]);
+        // dd($request->all());
         User::create($request->all());
 
         return 
@@ -62,13 +63,12 @@ class UserController extends Controller
             "zipCode" => 'required',
             "email" => 'required',
             "password" => 'required',
-            "is_admin" => 'required',
-            "is_superAdmin" => 'required',
-            "is_adherent" => 'required',
-            "is_licencier" => 'required',
-            
-           
+            "is_admin",
+            "is_superAdmin",
+            "is_adherent",
+            "is_licencier",
         ]);
+
         $user->update($request->all());
 
         return 
@@ -82,8 +82,9 @@ class UserController extends Controller
 
     }
     //destroy user
-    public function destroy(User $user)
+    public function destroy($id)
     {
+        $user = User::find($id);
       $user->delete();
 
        return redirect()->route('index.user')

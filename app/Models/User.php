@@ -28,7 +28,7 @@ class User extends Authenticatable
         'email',
         'password',
         'is_admin',
-        'is_icencier',
+        'is_licencier',
         'is_adherent',
         'is_superAdmin',
         'firstname',

@@ -35,9 +35,9 @@
               <td>{{$partner->description_partner}}</td>
               <td><img src="/image/{{$partner->image}}" width="100px"></td>
               <td class="btn-group" role="group">
+                <a href="{{route('partner.show', $partner->id)}}" class="btn btn-info mr-4">View</a>
+                <a href="{{route('partner.edit', $partner->id)}}"class="btn btn-primary mr-4">Edit</a>
                   <form action="{{route('partner.destroy',$partner->id)}}" method="POST">
-                    <a href="{{route('partner.show', $partner->id)}}" class="btn btn-info mr-4">View</a>
-                    <a href="{{route('partner.edit', $partner->id)}}"class="btn btn-primary mr-4">Edit</a>
                      @csrf
                     @method('DELETE')
                   <button type="submit" class="btn btn-danger">Delete</button>

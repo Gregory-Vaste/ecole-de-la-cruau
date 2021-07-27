@@ -37,9 +37,10 @@
             <td>{{$user->is_superAdmin}}</td>
             <td>
                 <a href="{{route('edit.user', $user->id)}}"class="btn btn-info btn">Edit</a>
-                @csrf
-                @method('DELETE')
-                <a href="{{route('delete.user', $user->id)}}" class="btn btn-danger btn">delete</a>
+                <form action="{{route('delete.user',$user->id)}}" method="POST">
+                  @csrf
+                 @method('DELETE')
+               <button type="submit" class="btn btn-danger">Delete</button>
             </td>
          </tr>
     

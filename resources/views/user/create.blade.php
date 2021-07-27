@@ -39,7 +39,7 @@
           <x-jet-label value="{{ __('Zip Code') }}" />
 
           <x-jet-input class="{{ $errors->has('zipCode') ? 'is-invalid' : '' }}" type="number" name="zipCode"
-                       :value="old('zipCode')" required autofocus autocomplete="name" />
+                       :value="old('zipCode')" required autofocus autocomplete="zipCode" />
           <x-jet-input-error for="zipCode"></x-jet-input-error>
       </div>
 
@@ -67,20 +67,32 @@
 
      
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" name="is_licencier">
-      <label class="form-check-label{{$errors->has('is_licencier') ? 'is-invalide' : ''}}" for="is_licencier" value="is_licencier">{{__('Licencier')}}</label>
+      <input type="checkbox" class="form-check-input" name="is_licencier" value="1">
+      <label class="form-check-label{{$errors->has('is_licencier') ? 'is-invalide' : ''}}" for="is_licencier">{{__('Licencier')}}</label>
+         @error('is_licencier')
+        {{ $message }}
+        @enderror
     </div>
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="is_adherent">
-      <label class="form-check-label{{$errors->has('is_adherent') ? 'is-invalide' : ''}}" for="is_licencier" value="is_adherent">{{__('Adherent')}}</label>
+      <input type="checkbox" class="form-check-input" name="is_adherent" value="1">
+      <label class="form-check-label{{$errors->has('is_adherent') ? 'is-invalide' : ''}}" for="is_licencier" >{{__('Adherent')}}</label>
+      @error('is_adherent')
+        {{ $message }}
+        @enderror
     </div>
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="is_admin">
-      <label class="form-check-label{{$errors->has('is_admin') ? 'is-invalide' : ''}}" for="is_licencier" value="is_admin">{{__('Admin')}}</label>
+      <input type="checkbox" class="form-check-input" name="is_admin" value="1">
+      <label class="form-check-label{{$errors->has('is_admin') ? 'is-invalide' : ''}}" for="is_licencier">{{__('Admin')}}</label>
+      @error('is_admin')
+        {{ $message }}
+        @enderror
     </div>
     <div class="form-check">
-      <input type="checkbox" class="form-check-input" id="is_superAdmin">
-      <label class="form-check-label{{$errors->has('is_superAdmin') ? 'is-invalide' : ''}}" for="is_licencier" value="is_superAdmin">{{__('Super Admin')}}</label>
+      <input type="checkbox" class="form-check-input" name="is_superAdmin" value="1">
+      <label class="form-check-label{{$errors->has('is_superAdmin') ? 'is-invalide' : ''}}" for="is_licencier">{{__('Super Admin')}}</label>
+      @error('is_superAdmin')
+        {{ $message }}
+        @enderror
     </div>
     <div class="mb-0">
         <div class="d-flex justify-content-end align-items-baseline">
